@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MultipleView RecyclerView</string>
+    <string name="str1"> “What do we feel when we look at a good photograph? We just want to be there, right at the exact moment that photo taken!”</string>
+    <string name="str2"> "When a moment in front of me appears to be particularly special, whether it be by beauty or experience, I capture it. I usually find a reason to justify taking that photo - symmetry, or color or contrast - and it's my hope that my photography sheds light onto what I see and do on a daily basis."</string>
+    <string name="str3"> "My interest in photography is not to capture an image I see or even have in my mind, but to explore the potential of moments I can only begin to imagine."</string>
+    <string name="str4"> "In photography, there is a reality so subtle that it becomes more real than reality."</string>
+    <string name="str5"> "It takes a lot of imagination to be a good photographer. You need less imagination to be a painter because you can invent things. But in photography, everything is so ordinary; it takes a lot of looking before you learn to see the extraordinary."</string>
+    <string name="str6">"I think that's the strength of photography - to decide the decisive moment, to click in the moment to come up with a picture that never comes back again."</string>
+    <string name="str7">"Light makes photography. Embrace light. Admire it. Love it. But above all, know light. Know it for all you are worth, and you will know the key to photography."</string>
+    <string name="str8"> "Photography is the simplest thing in the world, but it is incredibly complicated to make it really work."</string>
+    <string name="str9">"In terms of digital photography, I continue to print and use film for the most part. I still shoot with film, 21/4 film specifically, and I love it. I love it because I know what it does, how it really responds to light."</string>
+    <string name="str10">"What I like about photographs is that they capture a moment that's gone forever, impossible to reproduce."</string>
+    <string name="str11">"When words become unclear, I shall focus on photographs. When images become inadequate, I shall be content with silence."</string>
+    <string name="str12">"When you photograph people in color, you photograph their clothes. But when you photograph people in Black and white, you photograph their souls!"</string>
+
+
+</resources>

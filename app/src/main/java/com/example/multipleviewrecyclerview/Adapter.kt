@@ -7,22 +7,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
-class Adapter(context: Context,arrayList: ArrayList<Data>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    companion object {
-        const val VIEW_TYPE_ONE = 1
-        const val VIEW_TYPE_TWO = 2
-    }
-
+class Adapter(context: Context,arrayList: List<Article>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val context: Context = context
-    var list: ArrayList<Data> = arrayList
+    var list: List<Article> = arrayList
 
     override fun onCreateViewHolder(viewgroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == VIEW_TYPE_ONE) {
-            return ViewHolderOne(
-                LayoutInflater.from(context).inflate(R.layout.layout_one, viewgroup, false)
-            )
-        }
         return ViewHolderTwo(
             LayoutInflater.from(context).inflate(R.layout.layout_two, viewgroup, false)
         )
@@ -33,36 +24,29 @@ class Adapter(context: Context,arrayList: ArrayList<Data>):RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (list[position].viewType == VIEW_TYPE_ONE) {
-            (holder as ViewHolderOne).bind(position) }
-        else
-        { (holder as ViewHolderTwo).bind(position)}
+        (holder as ViewHolderTwo).bind(position)
     }
 
-    private inner class ViewHolderOne(itemView: View):RecyclerView.ViewHolder(itemView) {
-        var text: TextView = itemView.findViewById(R.id.tv_layoutOne)
-        fun bind(position: Int) {
-            val recyclerViewModel = list[position]
-            text.text = recyclerViewModel.textData
-
-        }
-    }
 
     private inner class ViewHolderTwo(itemView: View):RecyclerView.ViewHolder(itemView) {
        var text: TextView = itemView.findViewById(R.id.tv_layoutTwo)
        var image: ImageView = itemView.findViewById(R.id.ImgView_layoutTwo)
+       var title:TextView=itemView.findViewById(R.id.tv_tittle)
+        var url:TextView=itemView.findViewById(R.id.news_url)
        fun bind(position: Int) {
            val recyclerViewModel = list[position]
-           text.text = recyclerViewModel.textData
-           image.setImageResource(list[position].image!!)
+           text.text = recyclerViewModel.description
+           title.text=recyclerViewModel.title
+           url.text=recyclerViewModel.url
+           if(recyclerViewModel.urlToImage!= null)
+               {
+                   image.visibility=View.VISIBLE
+                   Glide.with(context).load(recyclerViewModel.urlToImage).into(image)
+               }
+           else{
+               image.visibility=View.GONE
+             }
        }
    }
 
-    override fun getItemViewType(position: Int): Int {
-        if (list[position].viewType == VIEW_TYPE_ONE) {
-            return VIEW_TYPE_ONE}
-        else if(list[position].viewType == VIEW_TYPE_TWO)
-            return VIEW_TYPE_TWO
-        return super.getItemViewType(position)
-    }
 }
